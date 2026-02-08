@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Center Floriano | Saúde e Bem-Estar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #00a8e8;
+            --accent: #25d366;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+
+        body { background: white; color: var(--dark); line-height: 1.6; }
+
+        /* Header & Nav */
+        header {
+            background: white;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .logo img { height: 60px; }
+
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.8)), 
+                        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+
+        .btn-cta {
+            background: var(--accent);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .btn-cta:hover { transform: scale(1.05); background: #1eb954; }
+
+        /* Section Styling */
+        section { padding: 80px 10%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); }
+        .section-title div { height: 4px; width: 60px; background: var(--secondary); margin: 15px auto; }
+
+        /* Especialidades */
+        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .service-card {
+            padding: 40px;
+            background: var(--light);
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 5px solid transparent;
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--secondary); background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .service-card i { font-size: 40px; color: var(--secondary); margin-bottom: 20px; }
+
+        /* Quem Somos */
+        .about-flex { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-img { flex: 1; min-width: 300px; border-radius: 20px; overflow: hidden; }
+        .about-img img { width: 100%; border-radius: 20px; }
+
+        /* Footer */
+        footer { background: var(--dark); color: #cbd5e0; padding: 60px 10% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.2rem; }
+        .footer-col p, .footer-col a { color: #a0aec0; text-decoration: none; margin-bottom: 10px; display: block; }
+        
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { font-size: 24px; transition: 0.3s; }
+        .social-icons .insta:hover { color: #e1306c; }
+        .social-icons .whats:hover { color: #25d366; }
+
+        .copy { text-align: center; border-top: 1px solid #333; padding-top: 25px; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            nav { display: none; } /* Oculto para simplificar sem JS de menu hamburguer por enquanto */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://res.cloudinary.com/dmibs2bbf/image/upload/v1770555467/med_t5atwc.webp" alt="Medical Center Floriano">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#especialidades">Especialidades</a></li>
+                <li><a href="#quem-somos">Quem Somos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Cuidando da sua saúde com excelência em Floriano</h1>
+            <p>Atendimento humanizado, tecnologia de ponta e os melhores especialistas da região.</p>
+            <a href="https://wa.me/5589999204160" class="btn-cta">
+                <i class="fab fa-whatsapp"></i> Agendar Consulta
+            </a>
+        </div>
+    </section>
+
+    <section id="especialidades">
+        <div class="section-title">
+            <h2>Nossas Especialidades</h2>
+            <div></div>
+            <p>Um centro médico completo para você e sua família.</p>
+        </div>
+        <div class="grid-services">
+            <div class="service-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Cardiologia</h3>
+                <p>Check-ups, exames de ECG e acompanhamento cardíaco completo.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-baby"></i>
+                <h3>Pediatria</h3>
+                <p>Cuidado especial e carinhoso para o crescimento dos seus filhos.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bone"></i>
+                <h3>Ortopedia</h3>
+                <p>Tratamento especializado em coluna, articulações e traumatologia.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-microscope"></i>
+                <h3>Exames Lab</h3>
+                <p>Resultados precisos e rápidos com tecnologia laboratorial avançada.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="quem-somos" style="background-color: var(--light);">
+        <div class="about-flex">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=800" alt="Equipe Médica">
+            </div>
+            <div class="about-text">
+                <div class="section-title" style="text-align: left;">
+                    <h2>Quem Somos</h2>
+                    <div style="margin-left: 0;"></div>
+                </div>
+                <p>A <strong>Medical Center Floriano</strong> é referência em saúde no Piauí. Há anos, nossa missão é oferecer um atendimento que une o que há de mais moderno na medicina com um olhar atento e humano para cada paciente.</p>
+                <br>
+                <p>Localizada no coração de Floriano, nossa estrutura foi planejada para oferecer conforto, agilidade e segurança em todas as etapas do seu atendimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="section-title">
+            <h2>Localização e Contato</h2>
+            <div></div>
+        </div>
+        <div style="width: 100%; height: 400px; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.53123456789!2d-43.022!3d-6.767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDYnMDEuMiJTIDQzwrAwMScyMC40Ilc!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="https://res.cloudinary.com/dmibs2bbf/image/upload/v1770555467/med_t5atwc.webp" alt="Logo" style="height: 50px; filter: brightness(0) invert(1); margin-bottom: 20px;">
+                <p>Compromisso total com a sua saúde e qualidade de vida em Floriano-PI.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/medicalcenterfloriano/" class="insta" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5589999204160" class="whats" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <a href="#inicio">Início</a>
+                <a href="#especialidades">Especialidades</a>
+                <a href="#quem-somos">Quem Somos</a>
+                <a href="#contato">Agendar Consulta</a>
+            </div>
+            <div class="footer-col">
+                <h4>Informações</h4>
+                <p><strong>MEDICAL CENTER</strong></p>
+                <p>CNPJ: 07.543.336/0001-40</p>
+                <p><i class="fas fa-map-marker-alt"></i> Floriano - Piauí</p>
+                <p><i class="fas fa-phone"></i> (89) 99920-4160</p>
+            </div>
+        </div>
+        <div class="copy">
+            &copy; 2026 Medical Center Floriano. Todos os direitos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
